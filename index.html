@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Semester Hub | Student Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts for modern & handwritten aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h2>Semester Hub</h2>
+            </div>
+            <ul class="nav-links">
+                <li class="active"><a href="#dashboard"><i class="fa-solid fa-border-all"></i> Dashboard</a></li>
+                <li><a href="#tasks"><i class="fa-solid fa-list-check"></i> Tasks</a></li>
+                <li><a href="#timetable"><i class="fa-regular fa-calendar-days"></i> Timetable</a></li>
+                <li><a href="#notes"><i class="fa-regular fa-note-sticky"></i> Notes</a></li>
+            </ul>
+            <div class="user-profile">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Student&backgroundColor=d4e4f7"
+                    alt="User Avatar" class="avatar">
+                <p>College Year 1</p>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header Section -->
+            <header>
+                <div class="welcome-message">
+                    <h1 id="greeting">Good Morning, Student! 🌤️</h1>
+                    <p>Let's make today productive and aesthetic.</p>
+                </div>
+                <div class="datetime-display">
+                    <div class="time-widget" id="current-time">12:00 PM</div>
+                    <div class="date-widget" id="current-date">Monday, Oct 12</div>
+                </div>
+            </header>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+
+                <!-- Tasks Manager Card -->
+                <section class="card tasks-card" id="tasks">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-thumbtack text-blue"></i> My Tasks</h3>
+                    </div>
+                    <div class="task-input-container">
+                        <input type="text" id="task-input" placeholder="Add a new task...">
+                        <button id="add-task-btn"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <ul id="task-list" class="task-list">
+                        <!-- Tasks dynamically injected via JS -->
+                    </ul>
+                </section>
+
+                <!-- Reminders & Deadlines Card -->
+                <section class="card reminders-card" id="deadlines">
+                    <div class="card-header">
+                        <h3><i class="fa-regular fa-bell text-pink"></i> Upcoming Deadlines</h3>
+                    </div>
+                    <div class="deadline-input-container">
+                        <input type="text" id="deadline-title" placeholder="e.g. Math Assignment...">
+                        <input type="date" id="deadline-date" title="Select Due Date">
+                        <button id="add-deadline-btn" title="Add Deadline"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <ul id="deadlines-list" class="reminders-list">
+                        <!-- Deadlines dynamically injected via JS -->
+                    </ul>
+                </section>
+
+                <!-- Timetable Card -->
+                <section class="card timetable-card" id="timetable">
+                    <div class="card-header">
+                        <h3><i class="fa-regular fa-calendar text-lavender"></i> Today's Classes</h3>
+                    </div>
+                    <div class="timetable-schedule">
+                        <div class="class-item class-blue">
+                            <span class="time">09:00 AM</span>
+                            <div class="details">
+                                <h4>Introduction to CS</h4>
+                                <p><i class="fa-solid fa-location-dot"></i> Room 304</p>
+                            </div>
+                        </div>
+                        <div class="class-item class-pink">
+                            <span class="time">11:00 AM</span>
+                            <div class="details">
+                                <h4>Calculus I</h4>
+                                <p><i class="fa-solid fa-location-dot"></i> Room 102</p>
+                            </div>
+                        </div>
+                        <div class="class-item class-lavender">
+                            <span class="time">02:00 PM</span>
+                            <div class="details">
+                                <h4>English Literature</h4>
+                                <p><i class="fa-solid fa-location-dot"></i> Library Wing</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Notes Card -->
+                <section class="card notes-card" id="notes">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-pen-nib text-beige"></i> Quick Notes</h3>
+                        <div class="notes-actions">
+                            <button id="new-note-btn" title="Create New Note"><i class="fa-solid fa-plus"></i>
+                                New</button>
+                            <button id="save-note-btn">Save Note</button>
+                        </div>
+                    </div>
+                    <div class="notes-layout">
+                        <div class="notes-directory">
+                            <h4><i class="fa-regular fa-folder-open"></i> Note Directory</h4>
+                            <ul id="saved-notes-list" class="saved-notes-list">
+                                <!-- Saved notes will appear here -->
+                            </ul>
+                        </div>
+                        <div class="notes-editor">
+                            <textarea id="notes-area"
+                                placeholder="Write your thoughts, doodles, or reminders here..."></textarea>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
